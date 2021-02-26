@@ -1,0 +1,81 @@
+.menu-item {
+  min-width: 30%;
+  height: 240px;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  margin: 0 7.5px 15px;
+  background-position: center;
+  //cobrir a zona toda onde esta contida
+  background-size: cover;
+  overflow: hidden;
+
+  //ao passar por cima
+  &:hover {
+    // apontador fica com dedo em vez de seta
+    cursor: pointer;
+  
+    //todos os elementos com esta classe 
+    & .background-image {
+      //será aumentado 1.1 vezes mais a imagem
+      transform: scale(1.1);
+      //leva seis segundos a aumentar o tamanho, cubic-bezier é a velocidade a que aumenta
+      transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    }
+  
+    & .content {
+      opacity: 0.9;
+    }
+  }
+  
+
+  &.large {
+    height: 380px;
+  }
+
+  //& significa que é o selector de cima e este selector primeiro filho
+  &:first-child {
+    margin-right: 7.5px;
+  }
+
+  //& significa que é o selector de cima e este selector último filho
+  &:last-child {
+    margin-left: 7.5px;
+  }
+
+  .background-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .content {
+    height: 90px;
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    background-color: white;
+    opacity: 0.7;
+    // elemento posiciona-se em relação ao elemento pai
+    // este elemento não vai entrar nas contas para criar a altura e comprimento desta secção
+    position: absolute;
+
+    .title {
+      font-weight: bold;
+      margin-bottom: 6px;
+      font-size: 22px;
+      color: #4a4a4a;
+    }
+
+    .subtitle {
+      font-weight: lighter;
+      font-size: 16px;
+    }
+  }
+}
